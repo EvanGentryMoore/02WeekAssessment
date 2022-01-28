@@ -35,8 +35,13 @@ const cart = [
 
 //CODE HERE
 
+const summedPrice = cart.map(elem => elem.price).reduce(function(acc, curr){
+    return acc + curr;
+})
 
-// const summedPrice = cart.reduce(/* CALLBACK HERE */)
+console.log(summedPrice)
+
+// const summedPrice = cart.reduce()
 
 
 //////////////////PROBLEM 2////////////////////
@@ -57,10 +62,10 @@ const cart = [
 //CODE HERE
 
 function calcFinalPrice(cartTotal, couponValue, tax){
-
+    return (cartTotal * (1 + tax)) - couponValue
 }
 
-
+console.log(calcFinalPrice(100, 15, .05));
 
 //////////////////PROBLEM 3////////////////////
 /*  
@@ -83,7 +88,11 @@ function calcFinalPrice(cartTotal, couponValue, tax){
 */
 
 /*
-    TEXT ANSWER HERE
+Customer Name (string) so we can identify who placed the order.
+Customer CardInfo (object) so there is a way to pay for the order unique to the customer.
+Customer Billing Address (object) This helps with sending invoices and verifying purchases.
+Customer Shipping Address (object) Need somewhere to dilever the order.
+
 
 */
 
@@ -93,3 +102,9 @@ function calcFinalPrice(cartTotal, couponValue, tax){
 */
 
 //CODE HERE
+let customer = {
+    name: `Leeroy Jenkins`,
+    cardInfo: {cardNumber: '888555599933', expDate: '1122', CV2: '789'},
+    billingAdd: {street:'1600 Pennsylvania Avenue NW', state: `Washington, DC`, zip: `20500`},
+    shippingAdd: {street:'1600 Pennsylvania Avenue NW', state: `Washington, DC`, zip: `20500`}
+}
