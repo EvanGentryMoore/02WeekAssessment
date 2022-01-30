@@ -31,6 +31,14 @@
 */
 
 //CODE HERE
+let pizza = {
+    name:`Pepperoni`,
+    price: 13,
+    category: `entree`,
+    popularity: 10,
+    rating: 10,
+    tags: [`meat`, `classic`, `one topping`]
+}
 
 
 
@@ -43,6 +51,7 @@
 */
 
 //CODE HERE
+// console.log(pizza.popularity)
 
 
 /*
@@ -53,6 +62,7 @@
 */
 
 //CODE HERE
+// console.log(pizza.tags[1])
 
 
 /*
@@ -63,6 +73,8 @@
 */
 
 //CODE HERE
+let {price: pizzaPrice} = pizza;
+// console.log(pizzaPrice);
 
 
 /*
@@ -73,6 +85,8 @@
 */
 
 //CODE HERE
+let {category: pizzaCategory} = pizza;
+// console.log(pizzaCategory);
 
 
 //////////////////PROBLEM 3////////////////////
@@ -88,6 +102,28 @@
 */
 
 //CODE HERE
+class MenuItem {
+    constructor(name, price, category, popularity, rating, tags){
+        this.name = name;
+        this.price = price;
+        this.category = category;
+        this.popularity = popularity;
+        this.rating = rating;
+        this.tags = tags;
+    }
+}
+
+let lasagna = new MenuItem(`Lasagna`, 12, `entree`, 6, 8, [`family meal`, `saucy`, `Like Grandma used to make.`]);
+let sausagePizza = new MenuItem(`Sausage Pizza`, 13, 'entree', 8, 9, [`meat`, `classic`, `one topping`]);
+let calzone = new MenuItem(`Calzone`, 7, `entree`, 6, 9, [`Serves one`, `sandwich`, `cheese filled`]);
+let sideSalad = new MenuItem(`Side Salad`, 4, `appetizer`, 5, 6, [`Healthy-ish`, `Choice of dressing`, `made fresh`]);
+let jalapenoPoppers = new MenuItem(`Jalapeno Poppers`, 6, `appetizer`, 8, 10, [`Spicy`, `Cheesy`, `Best in town`]);
+let pepperoniPizza = new MenuItem(pizza.name, pizza.price, pizza.category, pizza.popularity, pizza.rating, pizza.tags)
+
+const foodArr = [];
+foodArr.push(lasagna, sausagePizza, calzone, sideSalad, jalapenoPoppers, pepperoniPizza)
+
+// console.log(foodArr)
 
 
 
@@ -105,7 +141,9 @@
 
 //CODE HERE
 
-// const filteredFood = foodArr.filter(/* CALLBACK HERE */)
+const filteredFood = foodArr.filter(menuItem => menuItem.tags.includes(`meat`));
+
+// console.log(filteredFood)
 
 
 
@@ -149,13 +187,23 @@
 */
 
 //CODE HERE
-
+const filterByProperty = (property, number, type) => {
+    filteredArray = foodArr.filter(menuItem => {
+        if(type === `above`){
+        return menuItem[property] > number
+        } else if(type === `below`){
+        return menuItem[property] < number;
+        }
+    })
+    return filteredArray;
+}
 
 /*
-    Invoke the `filterByProperty` function passing
-    in a value for each paramter.
+Invoke the `filterByProperty` function passing
+in a value for each paramter.
 
-    You'll have to console.log to see the filtered array
+You'll have to console.log to see the filtered array
 */
 
 //CODE HERE
+console.log(filterByProperty(`popularity`, 7, `above`))
