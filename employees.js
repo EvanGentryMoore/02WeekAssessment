@@ -77,7 +77,7 @@ let empTwo = {...empOne, name: `Nick`};
 /*  
     Write a class called Manager that *extends* 
     the Employee class. In the constructor, 
-    make sure you require all of the parameters 
+    make sure you require all of the parameters  
     from the Employee class as well as 1 
     new one: employees, which will be an array of 
     employees that report to this manager. 
@@ -109,7 +109,7 @@ class Manager extends Employee{
     }
     addEmployee(emp){
         this.emp = emp;
-        `${this.employees} and ${this.emp}`;
+        this.employees.push(this.emp);
     }
 
 }
@@ -128,7 +128,7 @@ class Manager extends Employee{
 
 //CODE HERE
 
-let manager = new Manager(`Winston`, `weekday mornings, weekday afternoons`, `Cece and Schmidt`)
+let manager = new Manager(`Winston`, `weekday mornings, weekday afternoons`, [`Cece`, `Schmidt`])
 
 
 /*
